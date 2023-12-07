@@ -5,12 +5,14 @@ from schema import Todo
 import model
 from database import engine
 from routes.todos import todo_router
+from routes.auth import register_router
 
 
 model.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 app.include_router(todo_router)
+app.include_router(register_router)
 
 
 
